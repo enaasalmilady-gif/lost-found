@@ -1,6 +1,6 @@
-# تطبيق المفقودات والموجودات 📱
+# تطبيق المفقودات والموجودات
 
-مشروع تخرج / مشروع مادة برمجة تطبيقات الموبايل
+مشروع مادة Flutter - كلية التقنية الإلكترونية
 
 ---
 
@@ -27,7 +27,7 @@
 3. **Git** - حمله من [هنا](https://git-scm.com/)
 
 تأكد إن Flutter شغال عندك:
-```bash
+```
 flutter doctor
 ```
 
@@ -37,14 +37,14 @@ flutter doctor
 
 ### 1. حمل المشروع
 
-```bash
+```
 git clone https://github.com/YOUR_USERNAME/lost-and-found-app.git
 cd lost-and-found-app
 ```
 
 ### 2. حمل الـ packages
 
-```bash
+```
 flutter pub get
 ```
 
@@ -57,13 +57,13 @@ flutter pub get
 3. أضف تطبيق Android واستخدم الـ package name: `com.example.untitled1`
 4. حمّل ملف `google-services.json` وحطه في مجلد `android/app/`
 5. فعّل الخدمات التالية من Firebase Console:
-   - Authentication → روح على Sign-in method وفعّل Email/Password
-   - Firestore Database → اسوِ database جديدة
-   - Storage → فعّله عشان رفع الصور
+   - Authentication: روح على Sign-in method وفعّل Email/Password
+   - Firestore Database: اسوِ database جديدة
+   - Storage: فعّله عشان رفع الصور
 
 ### 4. شغّل التطبيق
 
-```bash
+```
 flutter run
 ```
 
@@ -71,17 +71,17 @@ flutter run
 
 ## المشاكل الشائعة وحلولها
 
-### مشكلة: "Build failed" أو "Gradle error"
+### مشكلة: Build failed أو Gradle error
 
 جرب هالأوامر بالترتيب:
-```bash
+```
 flutter clean
 flutter pub get
 flutter run
 ```
 
 لو ما اشتغل، روح لمجلد android واكتب:
-```bash
+```
 cd android
 ./gradlew clean
 cd ..
@@ -90,7 +90,7 @@ flutter run
 
 ---
 
-### مشكلة: "No Firebase App '[DEFAULT]' has been created"
+### مشكلة: No Firebase App '[DEFAULT]' has been created
 
 هذي تعني إن Firebase مو مضبوط صح. تأكد من:
 - ملف `google-services.json` موجود في `android/app/`
@@ -103,19 +103,19 @@ flutter run
 1. تأكد إنك مفعّل Email/Password في Firebase Console
 2. لازم تضيف SHA-1 fingerprint في Firebase:
 
-```bash
+```
 cd android
 ./gradlew signingReport
 ```
 
 انسخ الـ SHA-1 وأضفه في:
-Firebase Console → Project Settings → Your Apps → Add fingerprint
+Firebase Console ثم Project Settings ثم Your Apps ثم Add fingerprint
 
 ---
 
-### مشكلة: ما يرفع الصور / Permission denied
+### مشكلة: ما يرفع الصور
 
-روح Firebase Console → Storage → Rules وغيّرها لـ:
+روح Firebase Console ثم Storage ثم Rules وغيّرها لـ:
 
 ```
 rules_version = '2';
@@ -127,12 +127,6 @@ service firebase.storage {
   }
 }
 ```
-
----
-
-### مشكلة: "requires-recent-login" لما أحذف الحساب
-
-هذي طبيعية، Firebase يطلب تسجيل دخول جديد للعمليات الحساسة. التطبيق يعالجها تلقائياً.
 
 ---
 
@@ -174,7 +168,7 @@ lib/
 
 عشان تبني نسخة release:
 
-```bash
+```
 flutter build apk --release
 ```
 
@@ -184,17 +178,11 @@ flutter build apk --release
 
 ## التقنيات المستخدمة
 
-- Flutter & Dart
-- Firebase (Auth, Firestore, Storage)
-- Provider للـ State Management
+- Flutter و Dart
+- Firebase للمصادقة وقاعدة البيانات والتخزين
+- Provider لإدارة الحالة
 - SharedPreferences لحفظ الإعدادات
 
 ---
 
-## للتواصل
-
-لو واجهت أي مشكلة تواصل معي أو افتح Issue في GitHub.
-
----
-
-تم بحمد الله ✨
+تم بحمد الله
