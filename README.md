@@ -6,62 +6,62 @@
 
 ## نبذة عن المشروع
 
-هذا التطبيق عبارة عن نظام لإدارة المفقودات والموجودات، بحيث يقدر المستخدم يسجل الأشياء اللي ضاعت منه أو الأشياء اللي لقاها. التطبيق مبني بـ Flutter ومربوط بـ Firebase.
+هذا التطبيق عبارة عن نظام لإدارة المفقودات والموجودات، حيث يمكن للمستخدم تسجيل الأشياء التي فقدها أو الأشياء التي عثر عليها. التطبيق مبني باستخدام Flutter ومرتبط بخدمات Firebase.
 
 ### المميزات:
-- تسجيل دخول وإنشاء حساب
+- تسجيل الدخول وإنشاء حساب جديد
 - إضافة عنصر مفقود أو موجود مع صورة ووصف
-- عرض كل العناصر المسجلة
-- البحث والفلترة
+- عرض جميع العناصر المسجلة
+- البحث والتصفية
 - الوضع الليلي
-- يدعم العربي والإنجليزي
+- دعم اللغتين العربية والإنجليزية
 
 ---
 
-## البرامج المطلوبة
+## المتطلبات
 
-عشان تشغل المشروع لازم يكون عندك:
+لتشغيل المشروع يجب توفر البرامج التالية:
 
-1. **Flutter SDK** - حمله من [هنا](https://flutter.dev/docs/get-started/install)
-2. **Android Studio** - حمله من [هنا](https://developer.android.com/studio)
-3. **Git** - حمله من [هنا](https://git-scm.com/)
+1. **Flutter SDK** - يمكن تحميله من [هنا](https://flutter.dev/docs/get-started/install)
+2. **Android Studio** - يمكن تحميله من [هنا](https://developer.android.com/studio)
+3. **Git** - يمكن تحميله من [هنا](https://git-scm.com/)
 
-تأكد إن Flutter شغال عندك:
+للتأكد من أن Flutter يعمل بشكل صحيح، قم بتنفيذ الأمر التالي:
 ```
 flutter doctor
 ```
 
 ---
 
-## طريقة تشغيل المشروع
+## خطوات تشغيل المشروع
 
-### 1. حمل المشروع
+### 1. تحميل المشروع
 
 ```
 git clone https://github.com/YOUR_USERNAME/lost-and-found-app.git
 cd lost-and-found-app
 ```
 
-### 2. حمل الـ packages
+### 2. تثبيت الحزم
 
 ```
 flutter pub get
 ```
 
-### 3. إعداد Firebase (مهم جداً!)
+### 3. إعداد Firebase
 
-المشروع يستخدم Firebase، فلازم تسوي مشروع Firebase خاص فيك:
+المشروع يستخدم Firebase، لذلك يجب إنشاء مشروع Firebase خاص:
 
-1. روح على [Firebase Console](https://console.firebase.google.com/)
-2. اسوِ مشروع جديد
-3. أضف تطبيق Android واستخدم الـ package name: `com.example.untitled1`
-4. حمّل ملف `google-services.json` وحطه في مجلد `android/app/`
+1. انتقل إلى [Firebase Console](https://console.firebase.google.com/)
+2. أنشئ مشروعاً جديداً
+3. أضف تطبيق Android واستخدم اسم الحزمة: `com.example.untitled1`
+4. قم بتحميل ملف `google-services.json` وضعه في مجلد `android/app/`
 5. فعّل الخدمات التالية من Firebase Console:
-   - Authentication: روح على Sign-in method وفعّل Email/Password
-   - Firestore Database: اسوِ database جديدة
-   - Storage: فعّله عشان رفع الصور
+   - Authentication: انتقل إلى Sign-in method وفعّل Email/Password
+   - Firestore Database: أنشئ قاعدة بيانات جديدة
+   - Storage: فعّله لرفع الصور
 
-### 4. شغّل التطبيق
+### 4. تشغيل التطبيق
 
 ```
 flutter run
@@ -73,14 +73,14 @@ flutter run
 
 ### مشكلة: Build failed أو Gradle error
 
-جرب هالأوامر بالترتيب:
+قم بتنفيذ الأوامر التالية بالترتيب:
 ```
 flutter clean
 flutter pub get
 flutter run
 ```
 
-لو ما اشتغل، روح لمجلد android واكتب:
+إذا لم تُحل المشكلة، انتقل إلى مجلد android ونفذ:
 ```
 cd android
 ./gradlew clean
@@ -92,30 +92,30 @@ flutter run
 
 ### مشكلة: No Firebase App '[DEFAULT]' has been created
 
-هذي تعني إن Firebase مو مضبوط صح. تأكد من:
-- ملف `google-services.json` موجود في `android/app/`
-- الـ package name متطابق مع اللي في Firebase
+هذا الخطأ يعني أن Firebase غير مُعد بشكل صحيح. تأكد من:
+- وجود ملف `google-services.json` في مجلد `android/app/`
+- تطابق اسم الحزمة مع المسجل في Firebase
 
 ---
 
 ### مشكلة: فشل تسجيل الدخول
 
-1. تأكد إنك مفعّل Email/Password في Firebase Console
-2. لازم تضيف SHA-1 fingerprint في Firebase:
+1. تأكد من تفعيل Email/Password في Firebase Console
+2. يجب إضافة SHA-1 fingerprint في Firebase:
 
 ```
 cd android
 ./gradlew signingReport
 ```
 
-انسخ الـ SHA-1 وأضفه في:
+انسخ SHA-1 وأضفه في:
 Firebase Console ثم Project Settings ثم Your Apps ثم Add fingerprint
 
 ---
 
-### مشكلة: ما يرفع الصور
+### مشكلة: فشل رفع الصور
 
-روح Firebase Console ثم Storage ثم Rules وغيّرها لـ:
+انتقل إلى Firebase Console ثم Storage ثم Rules وعدّلها إلى:
 
 ```
 rules_version = '2';
@@ -130,9 +130,9 @@ service firebase.storage {
 
 ---
 
-### مشكلة: التطبيق بطيء أو يعلق
+### مشكلة: بطء التطبيق أو توقفه
 
-جرب تزيد RAM للـ Gradle. روح لـ `android/gradle.properties` وأضف:
+قم بزيادة الذاكرة المخصصة لـ Gradle. انتقل إلى ملف `android/gradle.properties` وأضف:
 
 ```
 org.gradle.jvmargs=-Xmx4096m
@@ -140,39 +140,39 @@ org.gradle.jvmargs=-Xmx4096m
 
 ---
 
-## ملفات المشروع
+## هيكل المشروع
 
 ```
 lib/
 ├── main.dart                    # الملف الرئيسي
 ├── firebase_options.dart        # إعدادات Firebase
 ├── models/
-│   └── lost_item.dart           # موديل العنصر
+│   └── lost_item.dart           # نموذج العنصر
 ├── screens/
-│   ├── login_screen.dart        # صفحة الدخول
-│   ├── home_screen.dart         # الصفحة الرئيسية
-│   ├── add_item_screen.dart     # إضافة عنصر
-│   ├── item_details_screen.dart # تفاصيل العنصر
-│   └── settings_screen.dart     # الإعدادات
+│   ├── login_screen.dart        # شاشة تسجيل الدخول
+│   ├── home_screen.dart         # الشاشة الرئيسية
+│   ├── add_item_screen.dart     # شاشة إضافة عنصر
+│   ├── item_details_screen.dart # شاشة تفاصيل العنصر
+│   └── settings_screen.dart     # شاشة الإعدادات
 ├── services/
-│   ├── auth_service.dart        # خدمة تسجيل الدخول
+│   ├── auth_service.dart        # خدمة المصادقة
 │   ├── firestore_service.dart   # خدمة قاعدة البيانات
 │   └── image_upload_service.dart # خدمة رفع الصور
 └── providers/
-    └── settings_provider.dart   # للثيم واللغة
+    └── settings_provider.dart   # مزود الإعدادات
 ```
 
 ---
 
-## بناء APK
+## بناء ملف APK
 
-عشان تبني نسخة release:
+لبناء نسخة الإصدار:
 
 ```
 flutter build apk --release
 ```
 
-الملف بيكون في: `build/app/outputs/flutter-apk/app-release.apk`
+الملف الناتج يكون في: `build/app/outputs/flutter-apk/app-release.apk`
 
 ---
 
