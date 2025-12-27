@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "812009543234",
+    "project_id": "lostandfoundfree-4ba9c",
+    "storage_bucket": "lostandfoundfree-4ba9c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812009543234:android:6dd144e849238e78b77fdb",
+        "android_client_info": {
+          "package_name": "com.example.untitled1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW2hfFgosyHdyGxjO-eEOviCZGHhDpcQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
