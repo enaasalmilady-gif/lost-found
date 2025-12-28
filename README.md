@@ -182,8 +182,11 @@ flutter build apk --release
 - Firebase للمصادقة وقاعدة البيانات والتخزين
 - Provider لإدارة الحالة
 - SharedPreferences: لحفظ الاعدادات الخاصة باللون واالوضع الليلي فقط
+
   ملاحظة:
-   لم يتم استخدام shared-prefreces في تسجيل الدخول, كل ما يتعلق بحساب المستخدم والجلسة يتم عبر Firebase Auth فقط. 
+
+  لم يتم استخدام shared-prefreces في تسجيل الدخول,
+  كل ما يتعلق بحساب المستخدم والجلسة يتم عبر Firebase Auth فقط. 
 ---
 
 
