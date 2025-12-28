@@ -68,9 +68,11 @@ flutter pub get
 5. فعّل الخدمات التالية من Firebase Console:
    - Authentication: انتقل إلى Sign-in method وفعّل Email/Password
    - Firestore Database: أنشئ قاعدة بيانات جديدة
-   - Storage: فعّله لرفع الصور
-
-### 4. تشغيل التطبيق
+   -ImageBB:
+ 6.لرفع الصور عبر ImageBB، يجب إنشاء حساب في ImageBB والحصول على API Key.
+ أنشئ ملفًا باسم lib/secrets.dart وضع فيه:
+ dart  const String imageBBApiKey = 'ضع_مفتاحك_هنا';  
+ -
 
 ```
 flutter run
@@ -179,8 +181,9 @@ flutter build apk --release
 - Flutter و Dart
 - Firebase للمصادقة وقاعدة البيانات والتخزين
 - Provider لإدارة الحالة
-- SharedPreferences لحفظ الإعدادات
-
+- SharedPreferences: لحفظ الاعدادات الخاصة باللون واالوضع الليلي فقط
+  ملاحظة:
+   لم يتم استخدام shared-prefreces في تسجيل الدخول, كل ما يتعلق بحساب المستخدم والجلسة يتم عبر Firebase Auth فقط. 
 ---
 
 
